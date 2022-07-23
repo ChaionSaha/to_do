@@ -1,0 +1,144 @@
+*,
+*::before,
+*::after {
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(129.07deg, rgba(138, 186, 197, 0.21) 2.5%, rgba(16, 3, 20, 0) 72.4%), linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 400% 400%;
+  animation: gradient-anim;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 62.5%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border: 1px solid lightblue;
+  border-radius: 5px;
+}
+
+@keyframes gradient-anim {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+.design {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: -1;
+}
+.design .img_1 {
+  position: absolute;
+  width: 30%;
+}
+.design .img_2 {
+  position: absolute;
+  width: 50%;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main-body {
+  display: flex;
+  position: relative;
+  column-gap: 0;
+}
+
+.container {
+  flex-grow: 1;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.425);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  text-align: center;
+  row-gap: 5%;
+}
+.sidebar h1 {
+  font-size: 2rem;
+  color: white;
+  font-weight: 400;
+}
+
+.navbar {
+  font-size: 3.2rem;
+  margin-bottom: 2.5%;
+  width: fit-content;
+  position: sticky;
+  top: 0;
+  padding: 10% 4%;
+  width: 100%;
+  text-align: center;
+  z-index: 100;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.navbar h1 {
+  text-transform: uppercase;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(255, 255, 255);
+}
+
+.tasks {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 1%;
+}
+.tasks .task {
+  padding: 5% 5%;
+  min-width: 100px;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(30px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 0% 2%;
+  margin-bottom: 2%;
+}
