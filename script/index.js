@@ -65,3 +65,4 @@ function generateWeatherURL(coords) {
 }
 
 console.log(getLocation());
+console.log("Hello world, I am Chaion.");
