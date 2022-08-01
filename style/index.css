@@ -250,6 +250,9 @@ body {
 .tasks .task:hover p {
   color: rgb(0, 0, 0);
 }
+.tasks .task:hover .done, .tasks .task:hover .edit, .tasks .task:hover .delete {
+  opacity: 1;
+}
 .tasks .task h1 {
   font-size: 2.2rem;
   transition: all 200ms;
@@ -262,6 +265,45 @@ body {
   font-size: 1rem;
   transition: all 200ms;
   color: rgba(0, 0, 0, 0.2);
+}
+.tasks .task svg {
+  cursor: pointer;
+  transition: all 200ms;
+}
+.tasks .task .header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.tasks .task .header svg {
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: #669bbc;
+  cursor: pointer;
+  opacity: 0;
+}
+.tasks .task .header svg:hover {
+  fill: rgb(0, 0, 0);
+}
+.tasks .task .footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tasks .task .footer svg {
+  width: 2rem;
+  height: 2rem;
+  opacity: 0;
+}
+.tasks .task .footer svg:first-of-type {
+  height: 2.7rem;
+  width: 2.7rem;
+}
+.tasks .task .footer svg:first-of-type:hover {
+  fill: #ee9b00;
+}
+.tasks .task .footer .delete:hover {
+  fill: #c1121f;
 }
 
 .hide {

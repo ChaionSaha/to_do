@@ -22,7 +22,6 @@ document.addEventListener("mousemove", (e) => {
 		cursor.style.top = `${e.clientY}px`;
 		cursor.style.left = `${e.clientX}px`;
 	});
-
 });
 
 document.querySelectorAll(".cursor-hide").forEach((cursor) => {
@@ -36,4 +35,33 @@ document.querySelectorAll(".cursor-hide").forEach((cursor) => {
 	});
 });
 
-localStorage.setItem("x", "Fuck you");
+////////////////////////////////////////////////////////////
+// Location tracking
+
+const getLocation = function () {
+	let temp;
+	function success(pos) {
+		const weatherURL = generateWeatherURL(pos.coords);
+		fetch(weatherURL)
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(
+					data.current_weather.temperature,
+					Math.ceil(data.current_weather.temperature)
+				);
+				temp = data.current_weather.temperature;
+			});
+	}
+	function error(err) {
+		var errMsg = err;
+	}
+	navigator.geolocation.getCurrentPosition(success, error);
+	return temp;
+};
+
+// const weatherLocation = getLocation();
+function generateWeatherURL(coords) {
+	return `https://api.open-meteo.com/v1/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}&current_weather=true`;
+}
+
+console.log(getLocation());
