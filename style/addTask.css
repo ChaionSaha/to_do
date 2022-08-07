@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+	font-family: inherit;
+	font-size: inherit;
+	padding: 0;
+	margin: 0;
+	box-sizing: content-box;
+}
+
+body {
+	background: linear-gradient(
+			129.07deg,
+			rgba(138, 186, 197, 0.21) 2.5%,
+			rgba(16, 3, 20, 0) 72.4%
+		),
+		linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 400% 400%;
+	animation: gradient-anim;
+	animation-duration: 15s;
+	animation-iteration-count: infinite;
+	height: 100vh;
+	overflow: auto;
+	position: relative;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 62.5%;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: white;
+	border: 1px solid lightblue;
+	border-radius: 5px;
+}
+
+@keyframes gradient-anim {
+	0% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
+}
+.cursor {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+}
+.cursor-inner {
+	height: 5px;
+	width: 5px;
+	border: 1px solid rgba(3, 5, 94, 0.3215686275);
+	background: rgba(3, 5, 94, 0.3215686275);
+	border-radius: 50%;
+	transform: translate(-50%, -50%);
+	transition: all 100ms ease-out;
+}
+.cursor-outer {
+	height: 55px;
+	width: 55px;
+	border: 1px solid rgba(3, 5, 94, 0.3215686275);
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	transition: all 300ms ease-out;
+}
+
+.design {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
+}
+.design .img_1 {
+	position: absolute;
+	width: 30%;
+}
+.design .img_2 {
+	position: absolute;
+	width: 50%;
+	top: 60%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

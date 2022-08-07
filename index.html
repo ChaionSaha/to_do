@@ -15,15 +15,20 @@
 		<title>To Do</title>
 	</head>
 	<body>
-		<div class="cursor-div">
+		<!-- cursor div  -->
+		<!-- <div class="cursor-div">
 			<div class="cursor cursor-inner"></div>
 			<div class="cursor cursor-outer"></div>
-		</div>
+		</div> -->
+
+		<!-- background image -->
 		<div class="design">
 			<img src="img/2025.png" class="img_1" />
 			<img src="img/image 4.png" class="img_2" />
 		</div>
 
+
+		<!-- main body  -->
 		<main class="main-body">
 			<div class="container">
 				<div class="navbar">
@@ -31,13 +36,18 @@
 				</div>
 				<div class="sidebar">
 					<h1 class="profile-name">Hi, Chaion</h1>
-					<div class="time">
-						<span> 07:03:01 PM </span>
-						<span> Today is Monday. </span>
-						<span> 25 July, 2022. </span>
-						<span> Today is 21&#176;C. </span>
+					<div class="time-weather">
+						<div class="time">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+						<p class="weather"> </p>
 					</div>
-					<a class="cursor-hide submit">Add Task</a>
+					<div class="button">
+						<a href="./pages/addTask.html" class="cursor-hide submit">Add Task</a>
+						<a href="./pages/doneTask.html"  class="cursor-hide submit">Done Tasks</a>
+					</div>
 				</div>
 			</div>
 
@@ -280,6 +290,9 @@
 				</div>
 		</main>
 
+
+		<script src="./script/weather&time.js"></script>
 		<script src="script/index.js"></script>
+		<!-- <script src="script/task.js"></script> -->
 	</body>
 </html>
