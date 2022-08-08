@@ -1,8 +1,7 @@
 const tasksDiv = document.querySelector(".tasks");
 
-let allTasks = JSON.parse(localStorage.getItem("user-1"));
-
 const updateUI = function () {
+	let allTasks = JSON.parse(localStorage.getItem("user-1"));
 	tasksDiv.innerHTML = "";
 	const tasks = allTasks.filter((task) => {
 		return task.isDone === true;

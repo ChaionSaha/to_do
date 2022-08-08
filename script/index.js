@@ -5,16 +5,17 @@ const tasksDiv = document.querySelector(".tasks");
 ////////////////////////////////////////////////
 /// Task work
 let allTasks = JSON.parse(localStorage.getItem("user-1"));
-console.log(allTasks);
+
 const updateUI = function () {
-	tasksDiv.innerHTML = "";
-	const tasks = allTasks.filter((task) => {
+	let tasks = allTasks.filter((task) => {
 		return task.isDone === false;
 	});
-	console.log(tasks);
-	tasks.map((task) => {
+	tasksDiv.innerHTML = "";
+
+	tasks.map((task, i) => {
 		const divCreate = document.createElement("div");
 		divCreate.classList.add("task");
+		divCreate.dataset.id = task.id;
 		divCreate.innerHTML = "";
 		const html = `
 					<div class="header">
@@ -47,3 +48,17 @@ const updateUI = function () {
 };
 
 updateUI();
+
+document.addEventListener("click", (e) => {
+	if (e.target.classList.contains("done")) {
+		const targetID = e.target.parentElement.parentElement.dataset.id;
+		allTasks[targetID].isDone = true;
+		localStorage.setItem("user-1", JSON.stringify(allTasks));
+		updateUI();
+	}
+	if (e.target.classList.contains("edit")) {
+		console.log("edit button clicked");
+		const targetID = e.target.parentElement.parentElement.dataset.id;
+		window.location.href = `../pages/editTask.html?q=${targetID}`;
+	}
+});

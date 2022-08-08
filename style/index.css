@@ -129,9 +129,11 @@ body {
   margin-bottom: 25%;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
   z-index: 100;
+  cursor: default;
 }
 .sidebar .time-weather {
   margin-bottom: 15%;
+  cursor: default;
 }
 .sidebar .time {
   display: flex;
@@ -206,6 +208,7 @@ body {
   background: linear-gradient(to right, #003566, transparent);
   -webkit-background-clip: text;
   background-clip: text;
+  cursor: default;
 }
 .navbar h1 {
   text-transform: uppercase;

@@ -325,3 +325,84 @@ body {
 .hide {
   transform: scale(0.001);
 }
+
+.editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+}
+.editor .editor-main {
+  border: 1px solid black;
+  padding: 8% 6%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.425);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.editor label {
+  color: #000;
+  font-weight: 400;
+}
+.editor div {
+  box-sizing: border-box;
+  width: 110%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.editor div input {
+  overflow: auto;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.5rem 1rem;
+  outline: none;
+  background-color: transparent;
+  overflow: auto;
+}
+.editor div label {
+  cursor: pointer;
+}
+.editor div:not(:last-of-type) {
+  margin-bottom: 10%;
+}
+.editor .buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.editor .buttons button {
+  padding: 0.6rem 1rem;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  transition: all 100ms;
+}
+.editor .buttons .submit:hover {
+  color: #6c757d;
+  box-shadow: 0 0 20px rgba(51, 65, 92, 0.2549019608);
+  border: 1px solid rgba(51, 65, 92, 0.2549019608);
+  font-weight: 500;
+}
+.editor .buttons .submit:active {
+  box-shadow: none;
+}
+.editor .buttons .cancel:hover {
+  font-weight: 500;
+  color: #d90429;
+  box-shadow: 0 0 20px rgba(217, 4, 39, 0.2392156863);
+  border: 1px solid #d90429;
+}
+.editor .buttons .cancel:active {
+  box-shadow: none;
+}
+.editor .title-div {
+  height: fit-content;
+}
