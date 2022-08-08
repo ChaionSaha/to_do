@@ -2,7 +2,6 @@
 @include bodyUI;
 
 .empty-error {
-	// border: 1px solid black;
 	flex-grow: 1;
 	height: 95vh;
 	display: flex;
@@ -12,6 +11,5 @@
 	font-size: 4rem;
 
 	color: transparent;
-	// color: rgba($color: rgb(59, 52, 52), $alpha: 0.7);
 	-webkit-text-stroke: 1px black;
 }

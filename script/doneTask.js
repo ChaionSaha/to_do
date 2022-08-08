@@ -1,13 +1,13 @@
 const tasksDiv = document.querySelector(".tasks");
+let allTasks = JSON.parse(localStorage.getItem("user-1"));
+
+let counter = 0;
 
 const updateUI = function () {
-	let allTasks = JSON.parse(localStorage.getItem("user-1"));
 	tasksDiv.innerHTML = "";
-	const tasks = allTasks.filter((task) => {
-		return task.isDone === true;
-	});
-	console.log(tasks);
-	tasks.map((task) => {
+	allTasks.map((task) => {
+		if (task.isDone === false) return;
+		counter++;
 		const divCreate = document.createElement("div");
 		divCreate.classList.add("task");
 		divCreate.innerHTML = "";
@@ -32,3 +32,13 @@ const updateUI = function () {
 };
 
 updateUI();
+
+function uiDecision() {
+	if (allTasks === null || counter === 0) {
+		tasksDiv.innerHTML = "";
+		const divCreate = document.createElement("div");
+		divCreate.classList.add("empty-error");
+		divCreate.innerHTML = `Add tasks to view here`;
+		tasksDiv.appendChild(divCreate);
+	} else updateUI();
+}

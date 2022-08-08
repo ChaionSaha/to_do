@@ -1,0 +1,118 @@
+@import "variables";
+@include bodyUI;
+
+$border-color: #33415c41;
+
+.editor {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+
+	& .editor-main {
+		border: 1px solid black;
+		padding: 8% 6%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: fit-content;
+		box-sizing: border-box;
+
+		background: rgba(255, 255, 255, 0.05);
+		backdrop-filter: blur(30px);
+		border: 1px solid rgba(255, 255, 255, 0.425);
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	}
+	& label {
+		color: #000;
+		font-weight: 400;
+		// -webkit-text-stroke: 1px rgba($color: #fff, $alpha: 0.6);
+	}
+
+	& div {
+		box-sizing: border-box;
+		width: 110%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		& input {
+			overflow: auto;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			padding: 0.5rem 1rem;
+			outline: none;
+			background-color: transparent;
+			overflow: auto;
+		}
+
+		& label {
+			cursor: pointer;
+		}
+
+		&:not(:last-of-type) {
+			margin-bottom: 10%;
+		}
+	}
+	& .buttons {
+		// border: 1px solid black;
+		// max-width: 60%;
+		display: flex;
+		justify-content: space-around;
+
+		& button {
+			padding: 0.6rem 1rem;
+			background-color: transparent;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			color: #fff;
+			cursor: pointer;
+			transition: all 100ms;
+		}
+
+		& .add {
+			&:hover {
+				color: #6c757d;
+				box-shadow: 0 0 20px $border-color;
+				border: 1px solid $border-color;
+				font-weight: 500;
+			}
+			&:active {
+				box-shadow: none;
+			}
+		}
+		& .cancel {
+			&:hover {
+				font-weight: 500;
+				color: #d90429;
+				box-shadow: 0 0 20px #d904273d;
+				border: 1px solid #d90429;
+			}
+			&:active {
+				box-shadow: none;
+			}
+		}
+	}
+
+	& .title-div {
+		height: fit-content;
+		& input {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&::placeholder {
+				color: red;
+				font-size: 1rem;
+				height: 100%;
+				width: 100%;
+			}
+
+			&:focus {
+				&::placeholder {
+					transform: scale(0);
+				}
+			}
+		}
+	}
+}
