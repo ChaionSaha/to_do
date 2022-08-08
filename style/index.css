@@ -325,3 +325,15 @@ body {
 .hide {
   transform: scale(0.001);
 }
+
+.empty-error {
+  flex-grow: 1;
+  height: 95vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  font-size: 4rem;
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}

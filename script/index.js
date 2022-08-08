@@ -1,18 +1,16 @@
 "use strict";
 
 const tasksDiv = document.querySelector(".tasks");
-
+const mainBody = document.querySelector(".main-body");
 ////////////////////////////////////////////////
 /// Task work
 let allTasks = JSON.parse(localStorage.getItem("user-1"));
 
 const updateUI = function () {
-	let tasks = allTasks.filter((task) => {
-		return task.isDone === false;
-	});
 	tasksDiv.innerHTML = "";
 
-	tasks.map((task, i) => {
+	allTasks.map((task, i) => {
+		if (task.isDone === true) return;
 		const divCreate = document.createElement("div");
 		divCreate.classList.add("task");
 		divCreate.dataset.id = task.id;
@@ -47,7 +45,13 @@ const updateUI = function () {
 	});
 };
 
-updateUI();
+if (allTasks === null) {
+	tasksDiv.innerHTML = "";
+	const divCreate = document.createElement("div");
+	divCreate.classList.add("empty-error");
+	divCreate.innerHTML = `Add tasks to view here`;
+	tasksDiv.appendChild(divCreate);
+} else updateUI();
 
 document.addEventListener("click", (e) => {
 	if (e.target.classList.contains("done")) {
