@@ -47,24 +47,14 @@ const updateUI = function () {
 	});
 };
 
-const uiDecision = function () {
-	if (allTasks === null || counter > 0) {
-		tasksDiv.innerHTML = "";
-		const divCreate = document.createElement("div");
-		divCreate.classList.add("empty-error");
-		divCreate.innerHTML = `Add tasks to view here`;
-		tasksDiv.appendChild(divCreate);
-	} else updateUI();
-};
-
-uiDecision();
+updateUI();
 
 document.addEventListener("click", (e) => {
 	if (e.target.classList.contains("done")) {
 		const targetID = e.target.parentElement.parentElement.dataset.id;
 		allTasks[targetID].isDone = true;
 		localStorage.setItem("user-1", JSON.stringify(allTasks));
-		uiDecision();
+		updateUI();
 	}
 	if (e.target.classList.contains("edit")) {
 		console.log("edit button clicked");
