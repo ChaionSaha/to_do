@@ -38,6 +38,16 @@ function generateWeatherURL(coords) {
 	return `https://api.open-meteo.com/v1/forecast?latitude=${coords.latitude}&longitude=${coords.longitude}&current_weather=true`;
 }
 
+const weatherUI = function () {
+	let data = JSON.parse(localStorage.getItem("weather"));
+	// console.log(data);
+	if (data === null) coords();
+	else {
+		weatherDiv.innerHTML = "";
+		weatherDiv.innerHTML = `It is ${data.current_weather.temperature}&#176;C around you now. `;
+	}
+};
+
 const coords = function locationPromise() {
 	getLocationPromise()
 		.then((res) => {
@@ -50,6 +60,7 @@ const coords = function locationPromise() {
 					notificationUI("Weather Updated", "green", "green");
 					localStorage.setItem("weather", JSON.stringify(data));
 					weatherRefresh.classList.remove("rotate");
+					weatherUI();
 					// console.log(`Now ${data.current_weather.temperature}`);
 				})
 				.catch((err) => {
@@ -58,24 +69,22 @@ const coords = function locationPromise() {
 				});
 		})
 		.catch((err) => {
-			notificationUI("Weather cannot be updated", "red", "red");
+			notificationUI(
+				"Weather cannot be updated due to location access denial",
+				"red",
+				"red"
+			);
+			console.log(err.message);
+			weatherDiv.innerHTML = "";
+			weatherDiv.style.color = "red";
+			weatherDiv.innerHTML = `Location access denied`;
 		});
 };
 
-// coords();
 setInterval(() => {
 	coords();
 }, 10800000);
 
-const weatherUI = function () {
-	let data = JSON.parse(localStorage.getItem("weather"));
-	// console.log(data);
-	if (data === null) coords();
-	else {
-		weatherDiv.innerHTML = "";
-		weatherDiv.innerHTML = `It is ${data.current_weather.temperature}&#176;C around you now. `;
-	}
-};
 weatherUI();
 
 ///////////////////////////////////////////////////
@@ -91,7 +100,7 @@ const timeFuntion = function () {
 		weekday: "long",
 	})}</span>${time.toLocaleString("default", { dateStyle: "long" })} <span>`;
 	timeContainer.innerHTML = html;
-	weatherUI();
+	// weatherUI();
 };
 
 timeFuntion();
