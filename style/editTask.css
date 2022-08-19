@@ -105,7 +105,6 @@ body {
   display: flex;
   flex-direction: column;
   padding: 3% 1.5%;
-  row-gap: 5%;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -117,7 +116,9 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
+  min-height: 75vh;
   height: fit-content;
+  justify-content: space-evenly;
   font-size: 1rem;
   font-weight: 400;
   overflow: auto;
@@ -126,33 +127,43 @@ body {
   font-size: 2.5rem;
   color: white;
   font-weight: 700;
-  margin-bottom: 25%;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
   z-index: 100;
   cursor: default;
 }
 .sidebar .time-weather {
-  margin-bottom: 15%;
   cursor: default;
+  height: fit-content;
 }
-.sidebar .time {
+.sidebar .time-weather .time {
   display: flex;
   flex-direction: column;
-  box-sizing: content-box;
   color: black;
   font-weight: 500;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
 }
-.sidebar .weather {
+.sidebar .time-weather .weather-div {
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar .time-weather .weather-div .weather {
   color: black;
   font-weight: 500;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+.sidebar .time-weather .weather-div .refresh {
+  fill: #023e8a;
+  height: 1.5rem;
+  width: 8%;
+  font-weight: 900;
+  cursor: pointer;
+  margin-right: 5px;
 }
 .sidebar .button {
   display: flex;
   flex-direction: column;
 }
-.sidebar a {
+.sidebar .button a {
   box-sizing: content-box;
   padding: 0.9rem 1rem;
   background: transparent;
@@ -168,7 +179,7 @@ body {
   text-decoration: none;
   z-index: 10;
 }
-.sidebar a::after {
+.sidebar .button a::after {
   content: "";
   position: absolute;
   height: 100%;
@@ -180,20 +191,20 @@ body {
   transition: all 200ms;
   z-index: -1;
 }
-.sidebar a:hover {
+.sidebar .button a:hover {
   border: 1px solid rgba(0, 0, 0, 0.61);
   color: black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.sidebar a:hover::after {
+.sidebar .button a:hover::after {
   width: 100%;
   height: 100%;
   transform: translateX(0);
 }
-.sidebar a:active::after {
+.sidebar .button a:active::after {
   left: 100%;
 }
-.sidebar a:first-of-type {
+.sidebar .button a:first-of-type {
   margin-bottom: 4%;
 }
 
@@ -326,6 +337,38 @@ body {
   transform: scale(0.001);
 }
 
+.notification {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.2rem;
+  max-height: 95vh;
+  overflow: auto;
+}
+.notification p {
+  border: 1px solid black;
+  color: aliceblue;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: all 300ms;
+}
+
+.rotate {
+  animation: rotate;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .editor {
   flex-grow: 1;
   display: flex;

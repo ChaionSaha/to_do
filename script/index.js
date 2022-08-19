@@ -9,7 +9,7 @@ let allTasks = JSON.parse(localStorage.getItem("user-1"));
 
 const updateUI = function () {
 	tasksDiv.innerHTML = "";
-
+	if (allTasks === null) return;
 	allTasks.map((task, i) => {
 		if (task.isDone === true) return;
 		counter++;

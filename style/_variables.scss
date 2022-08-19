@@ -9,6 +9,8 @@
 		padding: 0;
 		margin: 0;
 		box-sizing: content-box;
+
+		///////////////////////// Border////////////////////////
 		// border: 1px solid black;
 	}
 
@@ -119,7 +121,7 @@
 		display: flex;
 		flex-direction: column;
 		padding: 3% 1.5%;
-		row-gap: 5%;
+		// row-gap: 5%;
 		background: rgba(255, 255, 255, 0.05);
 		backdrop-filter: blur(30px);
 		border: 2px solid rgba(255, 255, 255, 0.1);
@@ -131,8 +133,10 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
+		min-height: 75vh;
 		height: fit-content;
-		// gap: 50%;
+		// row-gap: 9%;
+		justify-content: space-evenly;
 		font-size: 1rem;
 		font-weight: 400;
 		overflow: auto;
@@ -141,87 +145,98 @@
 			font-size: 2.5rem;
 			color: white;
 			font-weight: 700;
-			margin-bottom: 25%;
 			-webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
 			z-index: 100;
 			cursor: default;
 		}
 
-		.time-weather {
-			margin-bottom: 15%;
+		& .time-weather {
 			cursor: default;
-		}
+			height: fit-content;
+			// overflow: auto;
 
-		& .time {
-			display: flex;
-			flex-direction: column;
-			box-sizing: content-box;
-			color: black;
-			font-weight: 500;
-			// margin-bottom: 5rem;
-			-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
-		}
+			& .time {
+				display: flex;
+				flex-direction: column;
+				color: black;
+				font-weight: 500;
+				-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+			}
 
-		& .weather {
-			color: black;
-			font-weight: 500;
-			// margin-bottom: 5rem;
-			-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+			& .weather-div {
+				display: flex;
+				justify-content: space-between;
+
+				& .weather {
+					color: black;
+					font-weight: 500;
+					-webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+				}
+
+				& .refresh {
+					fill: #023e8a;
+					height: 1.5rem;
+					width: 8%;
+					font-weight: 900;
+					cursor: pointer;
+					margin-right: 5px;
+				}
+			}
 		}
 
 		& .button {
 			display: flex;
 			flex-direction: column;
-		}
 
-		& a {
-			box-sizing: content-box;
-			padding: 0.9rem 1rem;
-			background: transparent;
-			border: 1px solid rgba(255, 255, 255, 1);
-			cursor: pointer;
-			font-weight: 700;
-			font-size: 1.5rem;
-			color: white;
-			position: relative;
-			transition: all 200ms;
-			overflow: hidden;
-			text-align: center;
-			text-decoration: none;
-			z-index: 10;
-
-			&::after {
-				content: "";
-				position: absolute;
-				height: 100%;
-				width: 100%;
-				background-color: /*rgba(82, 197, 235, 0.61)*/ white;
-				top: 0;
-				left: 0;
-				transform: translateX(-100%);
+			& a {
+				box-sizing: content-box;
+				padding: 0.9rem 1rem;
+				background: transparent;
+				border: 1px solid rgba(255, 255, 255, 1);
+				cursor: pointer;
+				font-weight: 700;
+				font-size: 1.5rem;
+				color: white;
+				position: relative;
 				transition: all 200ms;
-				z-index: -1;
-			}
+				overflow: hidden;
+				text-align: center;
+				text-decoration: none;
+				z-index: 10;
 
-			&:hover {
-				border: 1px solid rgba(0, 0, 0, 0.61);
-				color: black;
 				&::after {
-					width: 100%;
+					content: "";
+					position: absolute;
 					height: 100%;
-					transform: translateX(0);
+					width: 100%;
+					background-color: /*rgba(82, 197, 235, 0.61)*/ white;
+					top: 0;
+					left: 0;
+					transform: translateX(-100%);
+					transition: all 200ms;
+					z-index: -1;
 				}
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-			}
 
-			&:active {
-				&::after {
-					left: 100%;
+				&:hover {
+					border: 1px solid rgba(0, 0, 0, 0.61);
+					color: black;
+					&::after {
+						width: 100%;
+						height: 100%;
+						transform: translateX(0);
+					}
+					box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 				}
-			}
 
-			&:first-of-type {
-				margin-bottom: 4%;
+				&:active {
+					&::after {
+						left: 100%;
+					}
+				}
+
+				&:first-of-type {
+					margin-bottom: 4%;
+				}
 			}
 		}
 	}
@@ -379,5 +394,40 @@
 
 	.hide {
 		transform: scale(0.001);
+	}
+
+	.notification {
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		font-size: 1.2rem;
+		// height: fit-content;
+		max-height: 95vh;
+		overflow: auto;
+
+		& p {
+			border: 1px solid black;
+			color: aliceblue;
+			padding: 0.8rem 1.2rem;
+			margin-bottom: 1rem;
+			transition: all 300ms;
+		}
+	}
+
+	.rotate {
+		animation: rotate;
+		animation-fill-mode: forwards;
+		animation-iteration-count: infinite;
+		animation-duration: 2s;
+		animation-timing-function: linear;
+	}
+
+	@keyframes rotate {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
 	}
 }
