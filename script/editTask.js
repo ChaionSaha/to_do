@@ -2,10 +2,13 @@
 
 const queryString = location.search;
 const urlParam = new URLSearchParams(queryString);
-const id = urlParam.get("q");
+const targetID = urlParam.get("q");
 
 const tasks = JSON.parse(localStorage.getItem("user-1"));
-console.log(tasks);
+
+let id = tasks.findIndex((t) => {
+	return t.id == targetID;
+});
 
 let title = document.querySelector("#title");
 let subHeader = document.querySelector("#sub-header");

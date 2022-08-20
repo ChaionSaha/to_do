@@ -50,6 +50,7 @@ const updateUI = function () {
 updateUI();
 
 document.addEventListener("click", (e) => {
+	e.preventDefault();
 	if (e.target.classList.contains("done")) {
 		const targetID = e.target.parentElement.parentElement.dataset.id;
 		allTasks[targetID].isDone = true;
