@@ -38,15 +38,22 @@
 							<span></span>
 							<span></span>
 						</div>
-						<p class="weather"></p>
+						<div class="weather-div">
+							<p class="weather"></p>
+							<svg class="refresh">
+								<use
+									xlink:href="../img/icomoon/symbol-defs.svg#icon-refresh"
+								></use>
+							</svg>
+						</div>
 					</div>
 					<div class="button">
 						<a
 							href="../pages/addTask.html"
-							class="cursor-hide submit"
+							class="cursor-hide submit btn"
 							>Add Task</a
 						>
-						<a href="../index.html" class="cursor-hide submit"
+						<a href="../index.html" class="cursor-hide submit btn"
 							>Tasks</a
 						>
 					</div>
@@ -55,7 +62,7 @@
 
 			<div class="tasks"></div>
 		</main>
-
+		<div class="notification"></div>
 		<script src="../script/weather&time.js"></script>
 		<script src="../script/doneTask.js"></script>
 	</body>

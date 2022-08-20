@@ -57,8 +57,13 @@ document.addEventListener("click", (e) => {
 		updateUI();
 	}
 	if (e.target.classList.contains("edit")) {
-		console.log("edit button clicked");
 		const targetID = e.target.parentElement.parentElement.dataset.id;
 		window.location.href = `../pages/editTask.html?q=${targetID}`;
+	}
+	if (e.target.classList.contains("delete")) {
+		const targetID = e.target.parentElement.parentElement.dataset.id;
+		allTasks.splice(targetID, 1);
+		localStorage.setItem("user-1", JSON.stringify(allTasks));
+		updateUI();
 	}
 });

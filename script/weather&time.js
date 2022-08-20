@@ -44,6 +44,7 @@ const weatherUI = function () {
 	if (data === null) coords();
 	else {
 		weatherDiv.innerHTML = "";
+		weatherDiv.style.color = "black";
 		weatherDiv.innerHTML = `It is ${data.current_weather.temperature}&#176;C around you now. `;
 	}
 };
@@ -58,14 +59,18 @@ const coords = function locationPromise() {
 				})
 				.then((data) => {
 					notificationUI("Weather Updated", "green", "green");
+					data.lastUpdateTime = Date.now();
 					localStorage.setItem("weather", JSON.stringify(data));
 					weatherRefresh.classList.remove("rotate");
 					weatherUI();
 					// console.log(`Now ${data.current_weather.temperature}`);
 				})
 				.catch((err) => {
-					notificationUI("Weather cannot be updated", "red", "white");
+					notificationUI("Weather cannot be updated", "red", "red");
 					weatherRefresh.classList.remove("rotate");
+					weatherDiv.innerHTML = "";
+					weatherDiv.style.color = "red";
+					weatherDiv.innerHTML = `${err.message}`;
 				});
 		})
 		.catch((err) => {
@@ -74,10 +79,10 @@ const coords = function locationPromise() {
 				"red",
 				"red"
 			);
-			console.log(err.message);
 			weatherDiv.innerHTML = "";
 			weatherDiv.style.color = "red";
-			weatherDiv.innerHTML = `Location access denied`;
+			weatherDiv.innerHTML = `${err.message}`;
+			weatherRefresh.classList.remove("rotate");
 		});
 };
 
@@ -100,7 +105,6 @@ const timeFuntion = function () {
 		weekday: "long",
 	})}</span>${time.toLocaleString("default", { dateStyle: "long" })} <span>`;
 	timeContainer.innerHTML = html;
-	// weatherUI();
 };
 
 timeFuntion();
@@ -114,3 +118,14 @@ weatherRefresh.addEventListener("click", (e) => {
 	coords();
 	weatherRefresh.classList.add("rotate");
 });
+
+document.addEventListener("click", (e) => {
+	e.preventDefault();
+	if (e.target.classList.contains("btn")) {
+		console.log(e.target.href);
+		window.location.href = e.target.href;
+	}
+});
+
+// let newArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+// console.log(newArr.splice(0, 1), newArr);

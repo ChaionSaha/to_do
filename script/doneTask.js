@@ -10,6 +10,7 @@ const updateUI = function () {
 		counter++;
 		const divCreate = document.createElement("div");
 		divCreate.classList.add("task");
+		divCreate.dataset.id = `${task.id}`;
 		divCreate.innerHTML = "";
 		const html = `
 					<div class="header">
@@ -42,3 +43,12 @@ function uiDecision() {
 		tasksDiv.appendChild(divCreate);
 	} else updateUI();
 }
+
+document.addEventListener("click", (e) => {
+	if (e.target.classList.contains("delete")) {
+		const targetID = e.target.parentElement.parentElement.dataset.id;
+		allTasks.splice(targetID, 1);
+		localStorage.setItem("user-1", JSON.stringify(allTasks));
+		updateUI();
+	}
+});
