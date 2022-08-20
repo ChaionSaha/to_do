@@ -47,7 +47,10 @@ function uiDecision() {
 document.addEventListener("click", (e) => {
 	if (e.target.classList.contains("delete")) {
 		const targetID = e.target.parentElement.parentElement.dataset.id;
-		allTasks.splice(targetID, 1);
+		const targetIndex = allTasks.findIndex((t) => {
+			return t.id == targetID;
+		});
+		allTasks.splice(targetIndex, 1);
 		localStorage.setItem("user-1", JSON.stringify(allTasks));
 		updateUI();
 	}
