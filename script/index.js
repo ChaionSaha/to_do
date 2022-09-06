@@ -59,7 +59,7 @@ document.addEventListener("click", (e) => {
 	}
 	if (e.target.classList.contains("edit")) {
 		const targetID = e.target.parentElement.parentElement.dataset.id;
-		window.location.href = `../pages/editTask.html?q=${targetID}`;
+		window.location.href = `./pages/editTask.html?q=${targetID}`;
 	}
 	if (e.target.classList.contains("delete")) {
 		const targetID = e.target.parentElement.parentElement.dataset.id;
