@@ -1,69 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<link
-			rel="shortcut icon"
-			href="../img/logo 2.png"
-			type="image/x-icon"
-		/>
-		<link rel="stylesheet" href="../style/doneTask.css" />
-		<title>Done Tasks</title>
-	</head>
-	<body>
-		<div class="design">
-			<img src="../img/2025.png" class="img_1" />
-			<img src="../img/image 4.png" class="img_2" />
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
-		<!-- main body  -->
-		<main class="main-body">
-			<div class="container">
-				<div class="navbar">
-					<h1><span>to</span><span>do</span></h1>
-				</div>
-				<div class="sidebar">
-					<h1 class="profile-name">Hi, Chaion</h1>
-					<div class="time-weather">
-						<div class="time">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-						<div class="weather-div">
-							<p class="weather"></p>
-							<svg class="refresh">
-								<use
-									xlink:href="../img/icomoon/symbol-defs.svg#icon-refresh"
-								></use>
-							</svg>
-						</div>
-					</div>
-					<div class="button">
-						<a
-							href="../pages/addTask.html"
-							class="cursor-hide submit btn"
-							>Add Task</a
-						>
-						<a href="../index.html" class="cursor-hide submit btn"
-							>Tasks</a
-						>
-					</div>
-				</div>
-			</div>
+    <link rel="shortcut icon" href="../img/logo 2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../style/doneTask.css" />
+    <link
+      rel="stylesheet"
+      href="../style/doneTask_res.css"
+      media="screen and (max-width:700px)"
+    />
+    <link
+      rel="stylesheet"
+      href="../img/icomoon/fontawesome-free-6.2.0-web/css/all.css"
+    />
+    <title>Done Tasks</title>
+  </head>
+  <body>
+    <div class="body-div">
+      <div class="design">
+        <img src="../img/2025.png" class="img_1" />
+        <img src="../img/image 4.png" class="img_2" />
+      </div>
 
-			<div class="tasks"></div>
-		</main>
-		<div class="notification"></div>
-		<script src="../script/weather&time.js"></script>
-		<script src="../script/doneTask.js"></script>
-	</body>
+      <!-- main body  -->
+      <main class="main-body">
+        <div class="container">
+          <div class="navbar">
+            <h1><span>to</span><span>do</span></h1>
+          </div>
+          <div class="sidebar">
+            <h1 class="profile-name">Hi there</h1>
+            <div class="time-weather">
+              <div class="time">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="weather-div">
+                <p class="weather"></p>
+                <svg class="refresh">
+                  <use
+                    xlink:href="../img/icomoon/symbol-defs.svg#icon-refresh"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="add_menu">
+              <i class="fa-solid fa-sun icon"></i>
+            </div>
+            <div class="button">
+              <a href="../pages/addTask.html" class="cursor-hide btn"
+                >Add Task</a
+              >
+              <a href="../index.html" class="cursor-hide btn">Tasks</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tasks"></div>
+      </main>
+      <div class="notification"></div>
+    </div>
+    <script src="../script/weather&time.js"></script>
+    <script type="module" src="../script/doneTask.js"></script>
+  </body>
 </html>

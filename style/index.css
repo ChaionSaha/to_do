@@ -12,7 +12,7 @@ body {
   background: linear-gradient(129.07deg, rgba(138, 186, 197, 0.21) 2.5%, rgba(16, 3, 20, 0) 72.4%), linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 400% 400%;
+  background-size: 400% 400%; 
   animation: gradient-anim;
   animation-duration: 15s;
   animation-iteration-count: infinite;
@@ -130,6 +130,7 @@ body {
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
   z-index: 100;
   cursor: default;
+  height: fit-content;
 }
 .sidebar .time-weather {
   cursor: default;
@@ -197,15 +198,16 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .sidebar .button a:hover::after {
-  width: 100%;
-  height: 100%;
   transform: translateX(0);
 }
 .sidebar .button a:active::after {
-  left: 100%;
+  transform: translateX(100%);
 }
 .sidebar .button a:first-of-type {
   margin-bottom: 4%;
+}
+.sidebar .add_menu{
+  display: none;
 }
 
 .navbar {
@@ -214,7 +216,6 @@ body {
   width: fit-content;
   position: sticky;
   top: 0;
-  width: fit-content;
   z-index: 100;
   background: linear-gradient(to right, #003566, transparent);
   -webkit-background-clip: text;
@@ -232,17 +233,16 @@ body {
   position: relative;
   flex-grow: 1;
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   height: fit-content;
-  padding: 1% 0;
-  gap: 3%;
+  padding: 1% 1%;
 }
 .tasks .task {
-  min-width: 300px;
+  min-width: 250px;
   width: fit-content;
   max-width: 350px;
+  flex: 1 1 auto;
   height: fit-content;
   max-height: 200px;
   background: transparent;
@@ -252,7 +252,7 @@ body {
   padding: 2%;
   display: flex;
   flex-direction: column;
-  transition: all 300ms;
+  transition: all 300ms, width 0ms;
   gap: 1rem;
   transform: perspective(1100px) rotateY(-30deg);
   overflow: hidden;
@@ -292,6 +292,8 @@ body {
   font-size: 1rem;
   transition: all 200ms;
   color: rgba(0, 0, 0, 0.2);
+  white-space: wrap;
+  /* height: 2rem; */
 }
 .tasks .task svg {
   cursor: pointer;
@@ -370,14 +372,11 @@ body {
     transform: rotate(360deg);
   }
 }
-.empty-error {
-  flex-grow: 1;
-  height: 95vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: 900;
-  font-size: 4rem;
-  color: transparent;
-  -webkit-text-stroke: 1px black;
-}
+
+
+/* @media screen and (max-width:1110px){
+  .tasks .task{
+    max-width: 400px;
+    margin: 2% auto;
+  }
+} */

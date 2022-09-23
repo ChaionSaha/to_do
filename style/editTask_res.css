@@ -9,18 +9,29 @@
 }
 
 body {
-  background: linear-gradient(129.07deg, rgba(138, 186, 197, 0.21) 2.5%, rgba(16, 3, 20, 0) 72.4%), linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
+  background: linear-gradient(
+      129.07deg,
+      rgba(138, 186, 197, 0.31) 2.5%,
+      rgba(16, 3, 20, 0) 72.4%
+    ),
+    linear-gradient(180deg, #b9fbff 0%, #d1c9f1 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 400% 400%;
+  background-size: 500% 500%;
   animation: gradient-anim;
   animation-duration: 15s;
   animation-iteration-count: infinite;
   height: 100vh;
   overflow: auto;
+  overflow-x: hidden;
   position: relative;
   font-family: "Noto Sans", sans-serif;
   font-size: 62.5%;
+}
+.body-div{
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -74,7 +85,7 @@ body {
   left: 0;
   height: 100vh;
   width: 100vw;
-  z-index: -1;
+  z-index: -3;
 }
 .design .img_1 {
   position: absolute;
@@ -90,21 +101,25 @@ body {
 
 .main-body {
   display: flex;
+  flex-direction: column;
   position: relative;
   column-gap: 0;
+  height: 70vh;
+  z-index: 1;
 }
 
 .container {
   position: sticky;
   top: 0;
   left: 0;
-  height: 100vh;
-  min-width: 20rem;
-  max-width: 20rem;
+  height: fit-content;
+  width: 100%;
+  min-width: unset;
+  max-width: unset;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 3% 1.5%;
+  padding: 1% 1.5%;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(30px);
   border: 2px solid rgba(255, 255, 255, 0.1);
@@ -114,17 +129,17 @@ body {
 
 .sidebar {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
-  min-height: 75vh;
   height: fit-content;
-  justify-content: space-evenly;
-  font-size: 1rem;
+  min-height: unset;
+  justify-content: space-between;
+  font-size:max(0.6rem, 0.6rem + 33%);
   font-weight: 400;
-  overflow: auto;
+  overflow: hidden;
 }
 .sidebar h1 {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: 700;
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
@@ -132,8 +147,15 @@ body {
   cursor: default;
 }
 .sidebar .time-weather {
+  order: 3;
   cursor: default;
   height: fit-content;
+  width: 195px;
+  text-align: right;
+  position: absolute;
+  top:18px;
+  right: 0px;
+  line-height: 1.6;
 }
 .sidebar .time-weather .time {
   display: flex;
@@ -141,10 +163,12 @@ body {
   color: black;
   font-weight: 500;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+  padding-right: 26px;
 }
 .sidebar .time-weather .weather-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+
 }
 .sidebar .time-weather .weather-div .weather {
   color: black;
@@ -153,24 +177,39 @@ body {
 }
 .sidebar .time-weather .weather-div .refresh {
   fill: #023e8a;
-  height: 1.5rem;
+  height: 1.2rem;
   width: 6%;
   font-weight: 900;
   cursor: pointer;
-  margin-right: 10px;
+  margin-right: 0px;
 }
 .sidebar .button {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  order: 2;
+  position: absolute;
+  top: 48vh;
+  right: -2px;
+  border: 1px inset #e5e8ec;
+  box-shadow: 1px 1px 5px #a3a5a7;
+  width: 180px;
+  border-radius: 100px 0px 0px 100px;
+  transform: translateX(100%);
+  transition: transform 2s ease;
+  z-index: -1;
+  background-color: rgba(176, 163, 163, 0.2);
 }
 .sidebar .button a {
   box-sizing: content-box;
-  padding: 0.9rem 1rem;
-  background: transparent;
-  border: 1px solid rgb(255, 255, 255);
+  padding: 0.2rem 0.5rem;
+  background:#8c8f91;
+  border: 0px solid rgb(255, 255, 255);
+  border-radius: 14px;
   cursor: pointer;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 1rem;
   color: white;
   position: relative;
   transition: all 200ms;
@@ -178,6 +217,9 @@ body {
   text-align: center;
   text-decoration: none;
   z-index: 10;
+  height: 22px;
+  width: 104px;
+  margin: 0px 0px 0px 18px;
 }
 .sidebar .button a::after {
   content: "";
@@ -192,28 +234,69 @@ body {
   z-index: -1;
 }
 .sidebar .button a:hover {
-  border: 1px solid rgba(0, 0, 0, 0.61);
+  border: 0px solid rgba(0, 0, 0, 0.61);
   color: black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
 }
 .sidebar .button a:hover::after {
-  width: 100%;
-  height: 100%;
   transform: translateX(0);
 }
 .sidebar .button a:active::after {
-  left: 100%;
+  transform: translateX(100%);
 }
 .sidebar .button a:first-of-type {
-  margin-bottom: 4%;
+  margin-bottom: 1%;
 }
 .sidebar .add_menu{
-  display: none;
+  font-size: 72px;
+  color:#8c8f91;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top:47vh;
+  right: -36px;
+  cursor: pointer;
+  transition: color 2s;
 }
+.sidebar .add_forward{
+  color: #676263;
+  animation: rotateCircleForward 2s 1 forwards;
+}
+.sidebar .add_forward ~ .button{
+  transform: translateX(0%);
+  transition: all 2s ease;
 
+}
+.sidebar .add_backward{
+  color: #676263;
+  animation: rotateCircleBackward 2s 1 forwards;
+}
+.sidebar .add_backward ~ .button{
+  transform: translateX(100%);
+  transition: all 2s ease;
+
+}
+@keyframes rotateCircleForward{
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(-180deg);
+  }
+}
+@keyframes rotateCircleBackward{
+  from{
+    transform: rotate(-180deg);
+  }
+  to{
+    transform: rotate(0deg);
+  }
+}
 .navbar {
-  font-size: 4rem;
-  margin-bottom: 2.5%;
+  font-size: 3rem;
+  margin-bottom: 0%;
   width: fit-content;
   position: sticky;
   top: 0;
@@ -239,8 +322,8 @@ body {
 .notification {
   position: absolute;
   right: 1rem;
-  top: 1rem;
-  font-size: 1.2rem;
+  top: 8rem;
+  font-size: 0.8rem;
   max-height: 95vh;
   overflow: auto;
   max-width: 20%;
@@ -276,7 +359,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  z-index:-1;
 }
 .editor .editor-main {
   border: 1px solid black;
@@ -285,7 +369,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: max(450px, 50%);
+  width: max(356px, 50%);
   box-sizing: border-box;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(30px);
@@ -298,7 +382,7 @@ body {
 }
 .editor div {
   box-sizing: border-box;
-  width: 110%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -306,7 +390,7 @@ body {
 .editor div input {
   overflow: auto;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   outline: none;
   background-color: transparent;
   overflow: auto;
@@ -316,17 +400,17 @@ body {
   cursor: pointer;
 }
 .editor div:not(:last-of-type) {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 .editor .description-div #description{
   resize: vertical;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   margin: 0;
   outline: none;
   background: transparent;
   width:56%;
-  height: 100px;
-  max-height: 250px;
+  height: 80px;
+  max-height: 200px;
   min-height: 60px;
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -335,17 +419,17 @@ body {
   justify-content: space-around;
 }
 .editor .buttons button {
-  padding: 0.6rem 1rem;
+  padding: 0.4rem 0.9rem;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.2);
   color: #fff;
   cursor: pointer;
   transition: all 100ms;
 }
-.editor .buttons .add:hover {
-  color: #6c757d;
-  box-shadow: 0 0 20px rgba(51, 65, 92, 0.2549019608);
-  border: 1px solid rgba(51, 65, 92, 0.2549019608);
+.editor .buttons .submit:hover {
+  color: #07b91f;
+  box-shadow: 0 0 40px rgba(3, 231, 26, 0.255);
+  border: 1px solid rgba(3, 231, 26, 0.255);
   font-weight: 500;
 }
 .editor .buttons .add:active {
@@ -354,7 +438,7 @@ body {
 .editor .buttons .cancel:hover {
   font-weight: 500;
   color: #d90429;
-  box-shadow: 0 0 20px rgba(217, 4, 39, 0.2392156863);
+  box-shadow: 0 0 40px rgba(217, 4, 39, 0.2392156863);
   border: 1px solid #d90429;
 }
 .editor .buttons .cancel:active {

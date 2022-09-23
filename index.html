@@ -1,109 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="shortcut icon" href="img/logo 2.png" type="image/x-icon" />
-		<link rel="stylesheet" href="style/index.css" />
-		<title>To Do</title>
-	</head>
-	<body>
-		<!-- cursor div  -->
-		<!-- <div class="cursor-div">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style/index.css" />
+    <link rel="stylesheet" href="./style/index_res.css" media="screen and (max-width:700px)" />
+    <link
+      rel="stylesheet"
+      href="./img/icomoon/fontawesome-free-6.2.0-web/css/all.css"
+    />
+    <link rel="shortcut icon" href="img/logo 2.png" type="image/x-icon" />
+    <title>To Do</title>
+  </head>
+  <body>
+    <div class="body-div"> <!--overflow-x doesn't work with body or html in mobile or tablet-->
+      <!-- cursor div  -->
+      <!-- <div class="cursor-div">
 			<div class="cursor cursor-inner"></div>
 			<div class="cursor cursor-outer"></div>
 		</div> -->
 
-		<!-- background image -->
-		<div class="design">
-			<img src="img/2025.png" class="img_1" />
-			<img src="img/image 4.png" class="img_2" />
-		</div>
+      <!-- background image -->
+      <div class="design">
+        <img src="./img/2025.png" class="img_1" />
+        <img src="./img/image 4.png" class="img_2" />
+      </div>
 
+      <!-- main body  -->
+      <main class="main-body">
+        <div class="container">
+          <div class="navbar">
+            <h1><span>to</span><span>do</span></h1>
+          </div>
+          <div class="sidebar">
+            <h1 class="profile-name">Hi there</h1>
+            <div class="time-weather">
+              <div class="time">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="weather-div">
+                <p class="weather"></p>
+                <svg class="refresh">
+                  <use
+                    xlink:href="./img/icomoon/symbol-defs.svg#icon-refresh"
+                  ></use>
+                </svg>
+              </div>
+            </div>
+            <div class="add_menu">
+              <i class="fa-solid fa-sun icon"></i>
+            </div>
+            <div class="button">
+              <a href="./pages/addTask.html" class="cursor-hide btn"
+                >Add Task</a
+              >
+              <a href="./pages/doneTask.html" class="cursor-hide btn"
+                >Done Tasks</a
+              >
+            </div>
+            
+          </div>
+        </div>
+        <div class="tasks">
+          <div class="cursor-hide task">
+            <div class="header">
+              <h1 class="Title">Title</h1>
+              <svg class="done">
+                <use xlink:href="./img/icomoon/symbol-defs.svg#icon-checked"></use>
+              </svg>
+            </div>
+            <h2 class="sub-header">Sub Header</h2>
+            <p class="Description">
+              Description, Lorem ipsum dolor sit amet consectetur adipisicing
+              elit. Maxime dolore error quia explicabo est ullam eveniet libero
+              exercitationem? Non molestiae sit iste doloribus facilis esse nisi
+              alias? Error, blanditiis illum. Quam aut optio, unde doloremque
+              quos, pariatur qui, exercitationem fuga quae assumenda laudantium
+              perspiciatis vero adipisci? Provident assumenda iusto eum nesciunt
+              atque magnam amet aspernatur eius, sequi molestias, sit illo?
+              Iure, vero adipisci distinctio obcaecati mollitia consequatur
+              laudantium sunt maxime hic, asperiores reprehenderit illo
+              molestias est in veniam doloremque error blanditiis soluta
+              deserunt temporibus architecto nulla dolorum? Aliquid, ratione ad.
+            </p>
+            <div class="footer">
+              <svg class="edit">
+                <use xlink:href="./img/icomoon/symbol-defs.svg#icon-edit"></use>
+              </svg>
+              <svg class="delete">
+                <use xlink:href="./img/icomoon/symbol-defs.svg#icon-trashcan"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </main>
 
-		<!-- main body  -->
-		<main class="main-body">
-			<div class="container">
-				<div class="navbar">
-					<h1><span>to</span><span>do</span></h1>
-				</div>
-				<div class="sidebar">
-					<h1 class="profile-name">Hi there</h1>
-					<div class="time-weather">
-						<div class="time">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-						<div class="weather-div">
-							<p class="weather"> </p>
-							<svg class="refresh">
-								<use
-								xlink:href="./img/icomoon/symbol-defs.svg#icon-refresh"
-								></use>
-							</svg>
-						</div>
-					</div>
-					<div class="button">
-						<a href="./pages/addTask.html" class="cursor-hide submit btn">Add Task</a>
-						<a href="./pages/doneTask.html"  class="cursor-hide submit btn">Done Tasks</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="tasks">
-				<div class="cursor-hide task">
-					<div class="header">
-						<h1 class="Title">Title</h1>
-						<svg class="done">
-							<use
-								xlink:href="./img/icomoon/symbol-defs.svg#icon-checked"
-							></use>
-						</svg>
-					</div>
-					<h2 class="sub-header">Sub Header</h2>
-					<p class="Description">
-						Description, Lorem ipsum dolor sit amet consectetur
-						adipisicing elit. Maxime dolore error quia explicabo est
-						ullam eveniet libero exercitationem? Non molestiae sit
-						iste doloribus facilis esse nisi alias? Error,
-						blanditiis illum. Quam aut optio, unde doloremque quos,
-						pariatur qui, exercitationem fuga quae assumenda
-						laudantium perspiciatis vero adipisci? Provident
-						assumenda iusto eum nesciunt atque magnam amet
-						aspernatur eius, sequi molestias, sit illo? Iure, vero
-						adipisci distinctio obcaecati mollitia consequatur
-						laudantium sunt maxime hic, asperiores reprehenderit
-						illo molestias est in veniam doloremque error blanditiis
-						soluta deserunt temporibus architecto nulla dolorum?
-						Aliquid, ratione ad.
-					</p>
-					<div class="footer">
-						<svg class="edit">
-							<use
-								xlink:href="./img/icomoon/symbol-defs.svg#icon-edit"
-							></use>
-						</svg>
-						<svg class="delete">
-							<use
-								xlink:href="./img/icomoon/symbol-defs.svg#icon-trashcan"
-							></use>
-						</svg>
-					</div>
-				</div>
-		</main>
-		
-		<div class="notification"></div>
-
-		<!-- <script src="script/task.js"></script> -->
-		<script type="module" src="./script/weather&time.js"></script>
-		<script type="module" src="script/index.js"></script>
-	</body>
+      <div class="notification"></div>
+    </div>
+    <script src="./script/weather&time.js"></script>
+    <script type="module" src="./script/index.js"></script>
+  </body>
 </html>

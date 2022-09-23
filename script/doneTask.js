@@ -43,6 +43,7 @@ function uiDecision() {
 		tasksDiv.appendChild(divCreate);
 	} else updateUI();
 }
+uiDecision();
 
 document.addEventListener("click", (e) => {
 	if (e.target.classList.contains("delete")) {
@@ -54,4 +55,22 @@ document.addEventListener("click", (e) => {
 		localStorage.setItem("user-1", JSON.stringify(allTasks));
 		updateUI();
 	}
+	if (e.target.classList.contains("icon")) {
+		const addDiv = document.querySelector(".add_menu");
+		if(addDiv.classList.contains("add_forward")){
+		  addDiv.classList.remove("add_forward");
+		  addDiv.classList.add("add_backward");
+		}else{
+		  addDiv.classList.remove("add_backward");
+		  addDiv.classList.add("add_forward");
+		}
+	  }
 });
+
+import * as equalCardsModule from "./equalCards.js";
+
+equalCardsModule.initial()
+window.addEventListener("resize", (e) => {
+	e.preventDefault();
+	equalCardsModule.cardsWidthEqual();
+  });

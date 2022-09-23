@@ -12,6 +12,15 @@
 		/>
 		<link rel="shortcut icon" href="../img/logo 2.png" type="image/x-icon" />
 		<link rel="stylesheet" href="../style/editTask.css" />
+		<link
+      rel="stylesheet"
+      href="../style/editTask_res.css"
+      media="screen and (max-width:700px)"
+    />
+    <link
+      rel="stylesheet"
+      href="../img/icomoon/fontawesome-free-6.2.0-web/css/all.css"
+    />
 		<title>Edit Tasks</title>
 	</head>
 		<!-- background image -->
@@ -27,7 +36,7 @@
 					<h1><span>to</span><span>do</span></h1>
 				</div>
 				<div class="sidebar">
-					<h1 class="profile-name">Hi, Chaion</h1>
+					<h1 class="profile-name">Hi there</h1>
 					<div class="time-weather">
 						<div class="time">
 							<span></span>
@@ -43,15 +52,18 @@
 							</svg>
 						</div>
 					</div>
+					<div class="add_menu">
+						<i class="fa-solid fa-sun icon"></i>
+					  </div>
 					<div class="button">
 						<a
-							href="./pages/addTask.html"
-							class="cursor-hide submit btn"
+							href="./addTask.html"
+							class="cursor-hide btn"
 							>Add Task</a
 						>
 						<a
 							href="../index.html"
-							class="cursor-hide submit btn"
+							class="cursor-hide btn"
 							>Tasks</a
 						>
 					</div>
@@ -69,9 +81,9 @@
                         <input type="text" name="sub-header" id="sub-header">
                     </div>
                     <div class="description-div">
-                        <label for="description">Description</label>
-                        <input type="text" name="description" id="description">
-                    </div>
+						<label for="description">Description</label>
+						<textarea name="description" id="description" cols="30" rows="10"></textarea>
+					</div>
 					<div class="buttons">
 						<button class="submit">Submit</button>
 						<button class="cancel">Cancel</button>

@@ -31,4 +31,32 @@ document.addEventListener("click", (e) => {
 	if (e.target.classList.contains("cancel")) {
 		location.href = "../index.html";
 	}
+	if (e.target.classList.contains("icon")) {
+		const addDiv = document.querySelector(".add_menu");
+		if(addDiv.classList.contains("add_forward")){
+		  addDiv.classList.remove("add_forward");
+		  addDiv.classList.add("add_backward");
+		}else{
+		  addDiv.classList.remove("add_backward");
+		  addDiv.classList.add("add_forward");
+		}
+	  }
+});
+
+const editor_main = document.querySelector(".editor-main");
+const add = document.querySelector(".submit");
+
+editor_main.addEventListener("keypress", (event)=>{
+	if(event.target === document.activeElement && event.key === "Enter"){
+		if(event.target === title){
+			console.log("Hello")
+			subHeader.focus();
+		}
+		else if(event.target === subHeader){
+			description.focus();
+		}
+		else if(event.target === description){
+			add.click();
+		}
+	}
 });
