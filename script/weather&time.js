@@ -79,10 +79,6 @@ const coords = function locationPromise() {
 		});
 };
 
-setInterval(() => {
-	coords();
-}, 10800000);
-
 weatherUI();
 
 ///////////////////////////////////////////////////
@@ -120,5 +116,8 @@ document.addEventListener("click", (e) => {
 	}
 });
 
+coords();
+
+setInterval(coords, 5 * 60 * 1000);
 // let newArr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 // console.log(newArr.splice(0, 1), newArr);
