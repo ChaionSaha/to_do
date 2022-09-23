@@ -204,7 +204,7 @@ body {
 .sidebar .button a:active::after {
   left: 100%;
 }
-.sidebar .button a:first-of-type {
+.sidebar .button a:not(:last-of-type) {
   margin-bottom: 4%;
 }
 

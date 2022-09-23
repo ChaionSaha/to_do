@@ -58,7 +58,6 @@ const coords = function locationPromise() {
 					return response.json();
 				})
 				.then((data) => {
-					notificationUI("Weather Updated", "green", "green");
 					data.lastUpdateTime = Date.now();
 					localStorage.setItem("weather", JSON.stringify(data));
 					weatherRefresh.classList.remove("rotate");
@@ -66,7 +65,6 @@ const coords = function locationPromise() {
 					// console.log(`Now ${data.current_weather.temperature}`);
 				})
 				.catch((err) => {
-					notificationUI("Weather cannot be updated", "red", "red");
 					weatherRefresh.classList.remove("rotate");
 					weatherDiv.innerHTML = "";
 					weatherDiv.style.color = "red";
@@ -74,11 +72,6 @@ const coords = function locationPromise() {
 				});
 		})
 		.catch((err) => {
-			notificationUI(
-				"Weather cannot be updated due to location access denial",
-				"red",
-				"red"
-			);
 			weatherDiv.innerHTML = "";
 			weatherDiv.style.color = "red";
 			weatherDiv.innerHTML = `${err.message}`;
