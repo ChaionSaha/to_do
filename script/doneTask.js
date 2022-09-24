@@ -5,6 +5,7 @@ let counter = 0;
 
 const updateUI = function () {
 	tasksDiv.innerHTML = "";
+	if (allTasks === null) return;
 	allTasks.map((task) => {
 		if (task.isDone === false) return;
 		counter++;

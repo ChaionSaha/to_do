@@ -11,7 +11,7 @@ let allTasks = JSON.parse(localStorage.getItem("user-1"));
 const updateUI = function () {
   tasksDiv.innerHTML = "";
   if (allTasks === null) return;
-  allTasks.map((task, i) => {
+  allTasks.map((task) => {
     if (task.isDone === true) return;
     const divCreate = document.createElement("div");
     divCreate.classList.add("task");
@@ -93,6 +93,7 @@ equalCardsModule.initial();
 window.addEventListener("resize", (e)=>{
 	e.preventDefault();
   let w = (window.innerWidth > 0)? window.innerWidth:screen.width;
+  console.log(w);   // problem ache equalcards.js e logical error
   if(w>700){
     equalCardsModule.cardsWidthEqual();
   } 

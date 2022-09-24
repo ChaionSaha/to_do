@@ -384,3 +384,8 @@ body {
   -webkit-text-stroke: 1px black;
   font-size: 200%;
 }
+@media screen and (max-width:700px) {
+  .sidebar .button{
+    display: none;
+  }
+}
