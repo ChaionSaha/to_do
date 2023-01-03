@@ -239,10 +239,11 @@ body {
   padding: 1% 1%;
 }
 .tasks .task {
-  min-width: 250px;
+  /* width: clamp(250px, 33%, 450px); */
+  /* min-width: 250px;
   width: fit-content;
-  max-width: 350px;
-  flex: 1 1 auto;
+  max-width: 350px; */
+  flex-grow: 0;
   height: fit-content;
   max-height: 200px;
   background: transparent;
@@ -383,5 +384,60 @@ body {
 @media screen and (max-width:700px) {
   .sidebar .button{
     display: none;
+  }
+}
+
+@media (min-width: 0) {
+  .col-1-xs {
+    box-sizing: border-box;
+    width: 25%;
+  }
+  .col-2-xs {
+    box-sizing: border-box;
+    width: 50%;
+  }
+  .col-3-xs {
+    box-sizing: border-box;
+    width: 75%;
+  }
+  .col-4-xs {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+@media (min-width: 720px) {
+  .col-1-md {
+    box-sizing: border-box;
+    width: 25%;
+  }
+  .col-2-md {
+    box-sizing: border-box;
+    width: 50%;
+  }
+  .col-3-md {
+    box-sizing: border-box;
+    width: 75%;
+  }
+  .col-4-md {
+    box-sizing: border-box;
+    width: 100%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-1-xl {
+    box-sizing: border-box;
+    width: 25%;
+  }
+  .col-2-xl {
+    box-sizing: border-box;
+    width: 50%;
+  }
+  .col-3-xl {
+    box-sizing: border-box;
+    width: 75%;
+  }
+  .col-4-xl {
+    box-sizing: border-box;
+    width: 100%;
   }
 }

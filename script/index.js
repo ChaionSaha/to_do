@@ -14,7 +14,7 @@ const updateUI = function () {
   allTasks.map((task) => {
     if (task.isDone === true) return;
     const divCreate = document.createElement("div");
-    divCreate.classList.add("task");
+    divCreate.classList.add("task","col-4-xs", "col-2-md", "col-1-xl");
     divCreate.dataset.id = task.id;
     divCreate.innerHTML = "";
     const html = `
